@@ -24,3 +24,8 @@ if __name__ == "__main__":
     # Complete the data processing steps using numpy here.
 
     # Save the output to OUTFILE using numpy routines.
+    raw_data = np.loadtxt(INFILE)
+    raw_data-=raw_data.mean()
+    x=raw_data.std()
+    processed=raw_data/x
+    np.savetxt(OUTFILE, processed, fmt='%.2e')
